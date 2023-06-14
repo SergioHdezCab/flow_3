@@ -1,0 +1,113 @@
+[
+    {
+        "id": "e3201a8824caa43f",
+        "type": "tab",
+        "label": "Flow 3",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "acb7db637a018d94",
+        "type": "inject",
+        "z": "e3201a8824caa43f",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "5",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 170,
+        "y": 100,
+        "wires": [
+            [
+                "fa0577c945f0c0e2"
+            ]
+        ]
+    },
+    {
+        "id": "8c99a7e306db79a8",
+        "type": "debug",
+        "z": "e3201a8824caa43f",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 620,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "fa0577c945f0c0e2",
+        "type": "function",
+        "z": "e3201a8824caa43f",
+        "name": "function 1",
+        "func": "// Lo que está después de \"//\" son comentarios\n// Crea un objeto Date a partir del msg.payload enviado por timestamp\nvar date = new Date(msg.payload);\n// Cambia el payload para que sea una fecha con formato\nmsg.payload = date.toString();\n// Regresa el mensaje para que se envíe al siguiente nodo\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 380,
+        "y": 100,
+        "wires": [
+            [
+                "8c99a7e306db79a8",
+                "f9e1ce867f71531a"
+            ]
+        ]
+    },
+    {
+        "id": "f9e1ce867f71531a",
+        "type": "ui_text",
+        "z": "e3201a8824caa43f",
+        "group": "ce756fc7e9dc6aab",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Fecha y hora actual",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "x": 650,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "ce756fc7e9dc6aab",
+        "type": "ui_group",
+        "name": "Fecha",
+        "tab": "24b893539b0af271",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "24b893539b0af271",
+        "type": "ui_tab",
+        "name": "Flow 3: Fecha",
+        "icon": "dashboard",
+        "order": 1,
+        "disabled": false,
+        "hidden": false
+    }
+]
