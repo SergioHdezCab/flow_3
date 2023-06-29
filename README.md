@@ -73,4 +73,4 @@ A continuación puede verse una vista previa del resultado de este flow.
 
 # Créditos
 
-Desarrollado por Nadia Yamile
+Desarrollado por Sergio Hernández Cabrera
